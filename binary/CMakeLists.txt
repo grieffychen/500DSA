@@ -1,0 +1,21 @@
+cmake_minimum_required(VERSION 3.0)
+set(Project_name 500dsalg_binary)
+
+set (CMAKE_CXX_STANDARD 11)
+set (CMAKE_CXX_STANDARD_REQUIRED ON)
+set (CMAKE_CXX_FLAGS "-std=c++11 ${CMAKE_CXX_FLAGS}")
+set (PROJECT_DIR ${CMAKE_CURRENT_SOURCE_DIR})
+
+project(${Project_name})
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/bin)
+add_executable(1_multi_16bit_int 1_multi_16bit_int.c)
+#add_executable(2_pro_exe 2_pro_exe.c)
+#add_executable(3_pro_exe 3_pro_exe.c)
+#add_executable(4_pro_exe 4_pro_exe.c)
+#add_executable(5_pro_exe 5_pro_exe.c)
+#add_executable(6_pro_exe 6_pro_exe.c)
+#add_executable(7_pro_exe 7_pro_exe.c)
+#add_executable(8_pro_exe 8_pro_exe.c)
+#add_executable(9_pro_exe 9_pro_exe.c)
+#add_executable(10_pro_exe 10_pro_exe.c)
+
