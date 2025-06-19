@@ -1,9 +1,7 @@
 /*
 
+Solve a given set of problems without using multiplication or division operators
 
-Check if a number is a power of 4 or not
-
-Given a positive number, check if it is a power of four or not.
 
 
 */
@@ -30,26 +28,28 @@ Given a positive number, check if it is a power of four or not.
 #include <stdlib.h>
 #include <string.h>
 
+/*
+Problem 1. Multiply a given integer with 15 without using multiplication and division operators.
+*/
 
-bool is_power_of4(unsigned int val)
+int multi_15(int val)
 {
-    int mask = 0xaaaaaaaa;
-    return (!(val&(val-1))) && (!(val&mask) );
+    return ((val<<4)-val);
 }
 
-bool is_power_of4_2(unsigned int val)
+/*
+Problem 2. Multiply a given even integer with 7.5 without using multiplication and division operators.
+*/
+
+int multi_7p5(int val)
 {
-    int mask = 0x55555555;
-    return (!(val&(val-1)) && (val&mask));
+    return (val<<3)-(val>>1);
 }
 
 int main(int argc, char** argv)
 {
-    //int n = 256;
-    int n = 255;
-
-    printf("%d %s power of 4\n",n,is_power_of4(n)?"is":"is not");
-    printf("%d %s power of 4\n",n,is_power_of4_2(n)?"is":"is not");
+    printf("%d x15 =%d\n",6,multi_15(6));
+    printf("%d x15 =%d\n",6,multi_7p5(6));
 
     return 0;
 }

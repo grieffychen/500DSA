@@ -1,9 +1,9 @@
 /*
 
 
-Check if a number is a power of 4 or not
+Check if a number is a power of 8 or not
 
-Given a positive number, check if it is a power of four or not.
+Given a positive number, check if it is a power of 8 or not.
 
 
 */
@@ -30,26 +30,23 @@ Given a positive number, check if it is a power of four or not.
 #include <stdlib.h>
 #include <string.h>
 
-
-bool is_power_of4(unsigned int val)
+bool is_power_of8(unsigned int val)
 {
-    int mask = 0xaaaaaaaa;
-    return (!(val&(val-1))) && (!(val&mask) );
+    unsigned int mask = 0;
+    int pos =3;
+    while(pos <32){
+        mask |=1<<pos;
+        pos+=3;
+    }
+    printf("0x%x\n",mask);
+    return (!(val&(val-1)) && (val&mask)) ;
 }
 
-bool is_power_of4_2(unsigned int val)
-{
-    int mask = 0x55555555;
-    return (!(val&(val-1)) && (val&mask));
-}
 
 int main(int argc, char** argv)
 {
-    //int n = 256;
-    int n = 255;
-
-    printf("%d %s power of 4\n",n,is_power_of4(n)?"is":"is not");
-    printf("%d %s power of 4\n",n,is_power_of4_2(n)?"is":"is not");
+    int n = 64*8;
+    printf("%d %s power of 8\n",n,is_power_of8(n)?"is":"is not");
 
     return 0;
 }

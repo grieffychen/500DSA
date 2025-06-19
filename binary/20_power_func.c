@@ -1,10 +1,15 @@
 /*
 
 
-Check if a number is a power of 4 or not
+Efficiently implement power function – Iterative and Recursive
 
-Given a positive number, check if it is a power of four or not.
+Given two integers, x and n, where n is non-negative, efficiently compute the power function pow(x, n).
 
+For example,
+pow(-2, 10) = 1024
+pow(-3, 4) = 81 
+pow(5, 0) = 1 
+pow(-2, 3) = -8 
 
 */
 #include <stdio.h>
@@ -30,26 +35,32 @@ Given a positive number, check if it is a power of four or not.
 #include <stdlib.h>
 #include <string.h>
 
+void printbits(int val){
+    for(int i =31;i>=0;i--){
+        printf("%d",val&(1<<i)?1:0);
+    }
+    printf("\n");
 
-bool is_power_of4(unsigned int val)
-{
-    int mask = 0xaaaaaaaa;
-    return (!(val&(val-1))) && (!(val&mask) );
 }
 
-bool is_power_of4_2(unsigned int val)
+int pow_iter(int x,unsigned int pw)
 {
-    int mask = 0x55555555;
-    return (!(val&(val-1)) && (val&mask));
+    long pow = 1;
+    for(int i = 0;i<pw;i++){
+        pow = pow*x;
+    }
+    return pow;
 }
 
 int main(int argc, char** argv)
 {
-    //int n = 256;
-    int n = 255;
+    //printbits(-2);
+    //printbits(-2>>1);
+    //printbits(-2>>2);
+    int x = -2;
+    int pow =10;
+    printf(" -2 ^ 10 =%d\n",pow_iter(x,pow));
 
-    printf("%d %s power of 4\n",n,is_power_of4(n)?"is":"is not");
-    printf("%d %s power of 4\n",n,is_power_of4_2(n)?"is":"is not");
 
     return 0;
 }
