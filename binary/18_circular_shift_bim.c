@@ -87,12 +87,14 @@ unsigned int rightshift(unsigned int val , int k)
 
 unsigned int rcshift(unsigned int val , int k)
 {
-    return (val<<k) | (val>>(32-k));
+    return (val>>k) |(val<<(32-k));
+    //return (val<<k) | (val>>(32-k));
 }
 
 unsigned int lcshift(unsigned int val , int k)
-{
-    return (val>>k) |(val<<(32-k));
+{    
+    return (val<<k) | (val>>(32-k));
+    //return (val>>k) |(val<<(32-k));
 }
 
 
@@ -106,9 +108,9 @@ int main(int argc, char** argv)
     int rv = rightshift(val,k);
     printbits(rv);
 
-    int lv2 = leftshift(val,k);
+    int lv2 = lcshift(val,k);
     printbits(lv2);
-    int rv2 = rightshift(val,k);
+    int rv2 = rcshift(val,k);
     printbits(rv2);
 
     return 0;
