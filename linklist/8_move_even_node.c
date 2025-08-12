@@ -1,6 +1,13 @@
 /*
 
 
+Move even nodes to the end of the linked list in reverse order
+
+Rearrange a given linked list such that every even node will be moved to the end of the list in reverse order.
+
+For example,
+Input:  1 —> 2 —> 3 —> 4 —> 5 —> 6 —> 7 —> null
+ Output: 1 —> 3 —> 5 —> 7 —> 6 —> 4 —> 2 —> null 
 
 
 
